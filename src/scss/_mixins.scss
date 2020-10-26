@@ -1,0 +1,11 @@
+@mixin sp {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin notSP {
+  @media not all and (max-width: 600px) {
+    @content;
+  }
+}
