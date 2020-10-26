@@ -29,3 +29,14 @@ a {
     text-decoration: none;
   }
 }
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  @include sp {
+    padding: 0 16px;
+  }
+}
