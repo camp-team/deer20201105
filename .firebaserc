@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "deer-20201105"
+  },
+  "targets": {
+    "deer-20201105": {
+      "hosting": {
+        "deer20201105": [
+          "deer-20201105"
+        ]
+      }
+    }
   }
 }
