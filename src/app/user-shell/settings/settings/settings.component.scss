@@ -1,0 +1,28 @@
+.mat-card {
+  padding: 24px 16px;
+}
+.mat-card-actions {
+  margin: 0;
+}
+
+mat-form-field {
+  margin-top: 24px;
+}
+
+.settings {
+  padding: 60px 0;
+  &__inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  &__content {
+    padding-top: 24px;
+  }
+  &__info {
+    margin-top: 24px;
+    text-align: center;
+  }
+  &__actions {
+    text-align: center;
+  }
+}

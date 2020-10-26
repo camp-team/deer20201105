@@ -1,1 +1,68 @@
-<p>settings works!</p>
+<div class="settings">
+  <div class="container">
+    <div class="settings__inner">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>メッセージ登録・編集</mat-card-title>
+        </mat-card-header>
+        <form>
+          <mat-card-content class="settings__content">
+            <mat-form-field appearance="fill">
+              <mat-label>ユーザー名</mat-label>
+              <input matInput autocomplete="off" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>メッセージタイトル</mat-label>
+              <input matInput autocomplete="off" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>メッセージ本文</mat-label>
+              <textarea
+                matInput
+                placeholder="Ex. It makes me feel..."
+                autocomplete="off"
+              ></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>在籍状況</mat-label>
+              <mat-select>
+                <mat-option value="在籍中">在籍中</mat-option>
+                <mat-option value="卒業生 or 退会済"
+                  >卒業生 or 退会済</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>入会日</mat-label>
+              <input matInput [matDatepicker]="picker1" autocomplete="off" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+              <mat-hint
+                >入会日順に並びます。日付については、おおよそでもOKです！</mat-hint
+              >
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>卒業日・退会日</mat-label>
+              <input matInput [matDatepicker]="picker2" autocomplete="off" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker2"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+              <mat-hint>日付については、おおよそでもOKです！</mat-hint>
+            </mat-form-field>
+            <div class="settings__info">
+              <p>アイコン画像の変更機能は後日追加予定です。</p>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="settings__actions">
+            <button mat-raised-button color="primary">保存する</button>
+          </mat-card-actions>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
