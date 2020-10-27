@@ -10,18 +10,17 @@
   >
     メッセージ一覧を見る
   </a>
-  <ng-container *ngIf="authService.afUser$ | async as user">
+  <ng-container *ngIf="authService.user$ | async as user">
     <button
       mat-mini-fab
-      color="primary"
       [matMenuTriggerFor]="userMenu"
-      [style.background-image]="'url(https://placehold.jp/40x40.png)'"
+      [style.background-image]="'url(' + user.avatarURL + ')'"
       class="header__icon"
     ></button>
     <mat-menu #userMenu="matMenu" class="header__menu">
       <a mat-menu-item routerLink="/settings">
-        <mat-icon>account_circle</mat-icon>
-        <span>マイページ</span>
+        <mat-icon>settings</mat-icon>
+        <span>設定</span>
       </a>
       <button mat-menu-item (click)="authService.logout()">
         <mat-icon>exit_to_app</mat-icon>
