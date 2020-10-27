@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-settings',
@@ -6,7 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit {
-  constructor() {}
+  readonly titleMaxLength = 30;
+  readonly messageMaxLength = 500;
+  readonly nameMaxLength = 12;
+
+  form = this.fb.group({
+    title: [
+      '',
+      [Validators.required, Validators.maxLength(this.titleMaxLength)],
+    ],
+    message: [
+      '',
+      [Validators.required, Validators.maxLength(this.messageMaxLength)],
+    ],
+    name: ['', [Validators.required, Validators.maxLength(this.nameMaxLength)]],
+    status: ['', [Validators.required, Validators.pattern(/leaved|playing/)]],
+    joinedDate: ['', [Validators.required]],
+    leavedDated: [''],
+    isPublic: [false],
+  });
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
+
+  submit() {
+    console.log(this.form.value);
+  }
 }

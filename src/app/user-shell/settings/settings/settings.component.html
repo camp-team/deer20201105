@@ -5,61 +5,146 @@
         <mat-card-header>
           <mat-card-title>メッセージ登録・編集</mat-card-title>
         </mat-card-header>
-        <form>
+        <form [formGroup]="form" (ngSubmit)="submit()">
           <mat-card-content class="settings__content">
             <mat-form-field appearance="fill">
-              <mat-label>ユーザー名</mat-label>
-              <input matInput autocomplete="off" />
-            </mat-form-field>
-            <mat-form-field appearance="fill">
               <mat-label>メッセージタイトル</mat-label>
-              <input matInput autocomplete="off" />
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="title"
+                [maxlength]="titleMaxLength"
+                required
+              />
+              <mat-hint align="end"
+                >{{ form.get('title').value.length }} /
+                {{ titleMaxLength }}</mat-hint
+              >
+              <mat-error *ngIf="form.get('title').hasError('maxlength')"
+                >最大{{ titleMaxLength }}文字です。</mat-error
+              >
+              <mat-error *ngIf="form.get('title').hasError('required')">
+                必須入力です。
+              </mat-error>
             </mat-form-field>
+
             <mat-form-field class="example-full-width">
               <mat-label>メッセージ本文</mat-label>
               <textarea
                 matInput
-                placeholder="Ex. It makes me feel..."
                 autocomplete="off"
+                formControlName="message"
+                [maxlength]="messageMaxLength"
+                required
               ></textarea>
+              <mat-hint align="end"
+                >{{ form.get('message').value.length }} /
+                {{ messageMaxLength }}</mat-hint
+              >
+              <mat-error *ngIf="form.get('message').hasError('maxlength')"
+                >最大{{ messageMaxLength }}文字です。</mat-error
+              >
+              <mat-error *ngIf="form.get('message').hasError('required')">
+                必須入力です。
+              </mat-error>
             </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>ユーザー名</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="name"
+                [maxlength]="nameMaxLength"
+                required
+              />
+              <mat-hint align="end"
+                >{{ form.get('name').value.length }} /
+                {{ nameMaxLength }}</mat-hint
+              >
+              <mat-error *ngIf="form.get('name').hasError('maxlength')"
+                >最大{{ nameMaxLength }}文字です。</mat-error
+              >
+              <mat-error *ngIf="form.get('name').hasError('required')">
+                必須入力です。
+              </mat-error>
+            </mat-form-field>
+
+            <div class="settings__info">
+              <p>アイコン画像の変更機能を実装してください。</p>
+            </div>
+
             <mat-form-field appearance="fill">
               <mat-label>在籍状況</mat-label>
-              <mat-select>
-                <mat-option value="在籍中">在籍中</mat-option>
-                <mat-option value="卒業生 or 退会済"
-                  >卒業生 or 退会済</mat-option
-                >
+              <mat-select formControlName="status" required>
+                <mat-option value="playing">在籍中</mat-option>
+                <mat-option value="leaved">OB・OG</mat-option>
               </mat-select>
+              <mat-error *ngIf="form.get('status').hasError('required')">
+                必須入力です。
+              </mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="fill">
               <mat-label>入会日</mat-label>
-              <input matInput [matDatepicker]="picker1" autocomplete="off" />
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                autocomplete="off"
+                formControlName="joinedDate"
+              />
               <mat-datepicker-toggle
                 matSuffix
                 [for]="picker1"
               ></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
               <mat-hint
-                >入会日順に並びます。日付については、おおよそでもOKです！</mat-hint
+                >入会日順に並びます。年月が正しければ、日付についてはおよそでもOKです！</mat-hint
               >
+              <mat-error *ngIf="form.get('joinedDate').hasError('required')">
+                必須入力です。
+              </mat-error>
             </mat-form-field>
-            <mat-form-field appearance="fill">
+
+            <mat-form-field
+              appearance="fill"
+              *ngIf="form.get('status').value == 'leaved'"
+            >
               <mat-label>卒業日・退会日</mat-label>
-              <input matInput [matDatepicker]="picker2" autocomplete="off" />
+              <input
+                matInput
+                [matDatepicker]="picker2"
+                autocomplete="off"
+                formControlName="leavedDated"
+              />
               <mat-datepicker-toggle
                 matSuffix
                 [for]="picker2"
               ></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
-              <mat-hint>日付については、おおよそでもOKです！</mat-hint>
+              <mat-hint
+                >年月が正しければ、日付についてはおよそでもOKです！</mat-hint
+              >
             </mat-form-field>
-            <div class="settings__info">
-              <p>アイコン画像の変更機能は後日追加予定です。</p>
+
+            <div class="settings__toggle">
+              <mat-slide-toggle color="primary" formControlName="isPublic"
+                >公開</mat-slide-toggle
+              >
             </div>
           </mat-card-content>
           <mat-card-actions class="settings__actions">
-            <button mat-raised-button color="primary">保存する</button>
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="form.invalid || form.pristine"
+            >
+              {{
+                form.get('isPublic').value
+                  ? 'メッセージを公開する'
+                  : '下書きを保存する'
+              }}
+            </button>
           </mat-card-actions>
         </form>
       </mat-card>
