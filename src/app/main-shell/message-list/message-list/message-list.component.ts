@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MessageListComponent implements OnInit {
   users = [
     {
+      uid: '1',
       name: 'ユーザー名',
       avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
       title: 'タイトルが入ります。',
@@ -17,6 +18,7 @@ export class MessageListComponent implements OnInit {
       leavedDate: '2020.04',
     },
     {
+      uid: '2',
       name: 'ユーザー名',
       avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
       title: 'タイトルが入ります。',
@@ -26,6 +28,7 @@ export class MessageListComponent implements OnInit {
       leavedDate: '2020.04',
     },
     {
+      uid: '3',
       name: 'ユーザー名',
       avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
       title: 'タイトルが入ります。',
@@ -35,6 +38,7 @@ export class MessageListComponent implements OnInit {
       leavedDate: '2020.04',
     },
     {
+      uid: '4',
       name: 'ユーザー名',
       avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
       title: 'タイトルが入ります。',
@@ -43,6 +47,7 @@ export class MessageListComponent implements OnInit {
       joinedDate: '2020.09',
     },
     {
+      uid: '5',
       name: 'ユーザー名',
       avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
       title: 'タイトルが入ります。',
@@ -51,6 +56,7 @@ export class MessageListComponent implements OnInit {
       joinedDate: '2020.09',
     },
   ];
+
   constructor() {}
 
   ngOnInit(): void {}

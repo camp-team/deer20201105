@@ -1,0 +1,32 @@
+.user {
+  &__title {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0;
+    padding: 7px 10px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    &:before {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -15px;
+      border: 15px solid transparent;
+      border-top: 15px solid #fff;
+    }
+  }
+  &__icon {
+    display: block;
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: center / cover;
+  }
+}
