@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'mixins';
+
+.message-list {
+  padding: 60px 0;
+  &__inner {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include sp {
+      grid-template-columns: 1fr;
+    }
+  }
+}
