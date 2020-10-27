@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteUserDialogComponent } from '../../delete-user-dialog/delete-user-dialog.component';
 
 @Component({
   selector: 'app-settings',
@@ -27,11 +29,19 @@ export class SettingsComponent implements OnInit {
     isPublic: [false],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
   submit() {
     console.log(this.form.value);
+  }
+
+  openDeleteUserDialog() {
+    this.dialog.open(DeleteUserDialogComponent, {
+      width: '400px',
+      autoFocus: false,
+      restoreFocus: false,
+    });
   }
 }

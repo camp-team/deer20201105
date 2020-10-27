@@ -14,3 +14,16 @@ export const createUser = functions
       isPublic: false,
     });
   });
+
+export const deleteUser = functions
+  .region('asia-northeast1')
+  .https.onCall((data, context) => {
+    return admin.auth().deleteUser(data);
+  });
+
+export const deleteUserData = functions
+  .region('asia-northeast1')
+  .auth.user()
+  .onDelete(async (user, _) => {
+    return db.collection(`users`).where('uid', '==', user.uid);
+  });
