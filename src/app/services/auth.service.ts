@@ -26,11 +26,15 @@ export class AuthService {
   loginProcessing = false;
 
   constructor(
-    private afAuth: AngularFireAuth,
+    public afAuth: AngularFireAuth,
     private db: AngularFirestore,
     private router: Router,
     private snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.user$.subscribe((user) => {
+      this.uid = user?.uid;
+    });
+  }
 
   login() {
     this.loginProcessing = true;
