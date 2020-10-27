@@ -10,21 +10,23 @@
   >
     メッセージ一覧を見る
   </a>
-  <button
-    mat-mini-fab
-    color="primary"
-    [matMenuTriggerFor]="userMenu"
-    [style.background-image]="'url(https://placehold.jp/40x40.png)'"
-    class="header__icon"
-  ></button>
-  <mat-menu #userMenu="matMenu" class="header__menu">
-    <a mat-menu-item routerLink="/settings">
-      <mat-icon>account_circle</mat-icon>
-      <span>マイページ</span>
-    </a>
-    <button mat-menu-item>
-      <mat-icon>exit_to_app</mat-icon>
-      <span>ログアウト</span>
-    </button>
-  </mat-menu>
+  <ng-container *ngIf="authService.afUser$ | async as user">
+    <button
+      mat-mini-fab
+      color="primary"
+      [matMenuTriggerFor]="userMenu"
+      [style.background-image]="'url(https://placehold.jp/40x40.png)'"
+      class="header__icon"
+    ></button>
+    <mat-menu #userMenu="matMenu" class="header__menu">
+      <a mat-menu-item routerLink="/settings">
+        <mat-icon>account_circle</mat-icon>
+        <span>マイページ</span>
+      </a>
+      <button mat-menu-item (click)="authService.logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>ログアウト</span>
+      </button>
+    </mat-menu>
+  </ng-container>
 </mat-toolbar>

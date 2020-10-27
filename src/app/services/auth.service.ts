@@ -35,4 +35,11 @@ export class AuthService {
         this.loginProcessing = false;
       });
   }
+
+  logout() {
+    this.afAuth.signOut().then(() => {
+      this.snackBar.open('ログアウトしました。');
+      this.router.navigateByUrl('/login');
+    });
+  }
 }
