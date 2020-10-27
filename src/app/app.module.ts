@@ -14,6 +14,11 @@ import { environment } from '../environments/environment';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+} from '@angular/material/snack-bar';
+
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
@@ -29,8 +34,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AngularFireFunctionsModule,
     MatIconModule,
     MatButtonModule,
+    MatSnackBarModule,
   ],
-  providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
+  providers: [
+    { provide: REGION, useValue: 'asia-northeast1' },
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 2500,
+      },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
