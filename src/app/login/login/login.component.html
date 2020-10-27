@@ -6,8 +6,17 @@
         <p>ログインして、バースデーメッセージをご入力ください。</p>
       </div>
       <div class="login__actions">
-        <button mat-raised-button color="primary" (click)="authService.login()">
-          Googleアカウントでログインする
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="authService.loginProcessing"
+          (click)="authService.login()"
+        >
+          {{
+            authService.loginProcessing
+              ? 'ログイン中'
+              : 'Googleアカウントでログインする'
+          }}
         </button>
       </div>
     </div>
