@@ -6,7 +6,7 @@
         <p>ログインして、バースデーメッセージをご入力ください。</p>
       </div>
       <div class="login__actions">
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" (click)="authService.login()">
           Googleアカウントでログインする
         </button>
       </div>
