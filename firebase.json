@@ -11,7 +11,8 @@
   },
   "hosting": [
     {
-      "public": "public",
+      "target": "deer20201105",
+      "public": "dist/deer20201105",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
