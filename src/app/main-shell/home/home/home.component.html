@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="home">
+  <div class="container">
+    <div class="home__inner">
+      <h1 class="home__title">Happy Birthday 🥳</h1>
+      <div class="home__list">
+        <app-user-card *ngFor="let user of users" [user]="user"></app-user-card>
+      </div>
+      <div class="home__dev">
+        <p>
+          アイコンをクリックしたら、モーダルでメッセージ本文等が表示される仕様です。（未実装）
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
