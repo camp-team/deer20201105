@@ -1,23 +1,29 @@
 <div class="login">
   <div class="container">
     <div class="login__inner">
-      <div class="login__messages">
-        <p>この度は、サプライズに賛同いただき、ありがとうございます！！</p>
-        <p>ログインして、バースデーメッセージをご入力ください。</p>
-      </div>
-      <div class="login__actions">
-        <button
-          mat-raised-button
-          color="primary"
-          [disabled]="authService.loginProcessing"
-          (click)="authService.login()"
-        >
-          {{
-            authService.loginProcessing
-              ? 'ログイン中'
-              : 'Googleアカウントでログインする'
-          }}
-        </button>
+      <div class="login__box">
+        <h1 class="login__title">Login</h1>
+        <p class="login__subtitle">CAMPメンバー＆OB・OGの皆さまへ</p>
+        <div class="login__messages">
+          <p>
+            CAMPメンターNinoさんの誕生日サプライズ企画にご賛同いただき、ありがとうございます！
+          </p>
+          <p>Googleアカウントでログインの上、メッセージを登録してください。</p>
+        </div>
+        <div class="login__actions">
+          <button
+            class="btn-admin"
+            [disabled]="authService.loginProcessing"
+            (click)="authService.login()"
+          >
+            <span>{{
+              authService.loginProcessing
+                ? 'ログイン中'
+                : 'Googleアカウントでログインする'
+            }}</span>
+          </button>
+        </div>
+        <div class="login__copy">&copy; Team CAMP.</div>
       </div>
     </div>
   </div>
