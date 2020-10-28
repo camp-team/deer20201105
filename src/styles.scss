@@ -72,7 +72,9 @@ mat-form-field {
   width: 100%;
   color: #fff;
   font-size: 16px;
+  text-align: center;
   outline: none;
+  overflow: hidden;
   @include sp {
     font-size: 14px;
     border-radius: 8px;
@@ -81,10 +83,16 @@ mat-form-field {
   &::before {
     content: '';
     position: absolute;
+    background-color: $color-gradient-admin-middle;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    opacity: 0;
+    transition: opacity 0.6s;
+  }
+  &:hover::before {
+    opacity: 1;
   }
   span {
     position: relative;
