@@ -9,7 +9,16 @@ const routes: Routes = [
     component: UserShellComponent,
     children: [
       {
-        path: '',
+        path: 'message-list',
+        pathMatch: 'full',
+        loadChildren: () =>
+          import('./message-list/message-list.module').then(
+            (m) => m.MessageListModule
+          ),
+      },
+      {
+        path: 'settings',
+        pathMatch: 'full',
         loadChildren: () =>
           import('./settings/settings.module').then((m) => m.SettingsModule),
         canLoad: [AuthGuard],

@@ -11,9 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class MessageListComponent implements OnInit {
   users$: Observable<UserData[]> = this.userService.getUsers();
 
-  constructor(
-    private userService: UserService,
-  ) { }
+  constructor(private userService: UserService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }

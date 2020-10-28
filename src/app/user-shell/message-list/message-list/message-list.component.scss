@@ -2,7 +2,10 @@
 @import 'mixins';
 
 .message-list {
-  padding: 60px 0;
+  padding: 40px 0;
+  @include sp {
+    padding: 30px 0;
+  }
   &__inner {
     display: grid;
     grid-gap: 16px;

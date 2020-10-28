@@ -1,7 +1,31 @@
+@import 'variables';
+@import 'mixins';
+
 .footer {
-  padding: 16px;
+  padding: 0 24px;
+  &__inner {
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.45);
+    padding: 16px 0;
+    display: flex;
+    font-size: 14px;
+    @include sp {
+      display: block;
+    }
+  }
+  &__login {
+    @include sp {
+      margin-bottom: 8px;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
   &__copy {
     text-transform: uppercase;
-    text-align: center;
+    margin-left: auto;
+    @include sp {
+      margin-left: 0;
+    }
   }
 }
