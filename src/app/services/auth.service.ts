@@ -53,7 +53,6 @@ export class AuthService {
           this.userService
             .createUser(user)
             .then(() => {
-              this.snackBar.open('ログインしました。');
               this.router.navigateByUrl('/settings');
             })
             .catch((error) => {
@@ -62,6 +61,8 @@ export class AuthService {
                 'ログインエラーです。数秒後にもう一度お試しください。'
               );
             });
+        } else {
+          this.router.navigateByUrl('/settings');
         }
       })
       .finally(() => {
