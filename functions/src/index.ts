@@ -3,4 +3,4 @@ const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
-export { createUser, deleteUser, deleteUserData } from './user.function';
+export { deleteUser, deleteUserData } from './user.function';

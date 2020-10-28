@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { auth } from 'firebase/app';
-import { User } from '../interfaces/user';
+import { UserData } from '../interfaces/user-data';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user$: Observable<User> = this.afAuth.authState.pipe(
+  user$: Observable<UserData> = this.afAuth.authState.pipe(
     switchMap((afUser) => {
       if (afUser) {
-        return this.db.doc<User>(`users/${afUser.uid}`).valueChanges();
+        return this.db.doc<UserData>(`users/${afUser.uid}`).valueChanges();
       } else {
         return of(null);
       }
@@ -29,24 +30,40 @@ export class AuthService {
     public afAuth: AngularFireAuth,
     private db: AngularFirestore,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private userService: UserService
   ) {
     this.user$.subscribe((user) => {
       this.uid = user?.uid;
     });
   }
 
-  login() {
+  async login(): Promise<void> {
     this.loginProcessing = true;
     const provider = new auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-    this.afAuth
-      .signInWithPopup(provider)
-      .then(() => {
-        this.router.navigateByUrl('/settings');
-      })
-      .catch(() => {
-        this.snackBar.open('ログイン中にエラーが発生しました。');
+    const userCredential = await this.afAuth.signInWithPopup(provider);
+    const user = userCredential.user;
+    return this.userService
+      .getUser(user.uid)
+      .pipe(take(1))
+      .toPromise()
+      .then((userDoc) => {
+        if (!userDoc) {
+          this.userService
+            .createUser(user)
+            .then(() => {
+              this.router.navigateByUrl('/settings');
+            })
+            .catch((error) => {
+              console.error(error.message);
+              this.snackBar.open(
+                'ログインエラーです。数秒後にもう一度お試しください。'
+              );
+            });
+        } else {
+          this.router.navigateByUrl('/settings');
+        }
       })
       .finally(() => {
         this.loginProcessing = false;

@@ -1,6 +1,6 @@
 import { firestore } from 'firebase';
 
-export interface User {
+export interface UserData {
   uid: string;
   name: string;
   avatarURL: string;
