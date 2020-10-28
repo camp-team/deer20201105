@@ -9,7 +9,7 @@ import { UserData } from '../interfaces/user-data';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private db: AngularFirestore, private snackBar: MatSnackBar) {}
+  constructor(private db: AngularFirestore, private snackBar: MatSnackBar) { }
 
   async createUser(user: User): Promise<void> {
     const id = this.db.createId();
@@ -21,8 +21,8 @@ export class UserService {
     });
   }
 
-  getUsers() {
-    // TODO
+  getUsers(): Observable<UserData[]> {
+    return this.db.collection<UserData>('users', (ref) => ref.where('isPublic', '==', true)).valueChanges();
   }
 
   getUser(uid: string): Observable<UserData> {
