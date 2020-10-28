@@ -13,7 +13,7 @@
   <mat-card-actions class="message-card__actions">
     <p>{{ user.name }}</p>
     <div class="">
-      {{ user.joinedDate }} 〜
+      {{ user.joinedDate?.toDate() | date: 'yy/MM/dd' }} 〜
       {{ user.leavedDate ? user.leavedDate : '在籍中' }}
     </div>
   </mat-card-actions>
