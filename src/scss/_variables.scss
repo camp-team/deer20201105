@@ -3,8 +3,9 @@ $color-main-light: #8cd790;
 $color-base: #e2f3ce;
 $color-font: #212121;
 
-// 管理画面UI用カラー設定
-// TODO:こちらのカラーはサービスカラーが決まり次第、調整します。
+// 管理画面UI用設定
+// TODO:こちらは、サービスUIが決まり次第、再度調整します。
+
 $color-gradient-admin-start: #2cd8d5;
 $color-gradient-admin-middle: #6b8dd6;
 $color-gradient-admin-end: #8e37d7;
@@ -14,3 +15,5 @@ $gradient-admin-main: linear-gradient(
   $color-gradient-admin-middle 48%,
   $color-gradient-admin-end 100%
 );
+
+$font-admin-en: 'Kaushan Script', cursive;
