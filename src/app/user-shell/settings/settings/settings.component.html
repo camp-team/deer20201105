@@ -5,7 +5,7 @@
         <mat-card-header>
           <mat-card-title>メッセージ登録・編集</mat-card-title>
         </mat-card-header>
-        <form [formGroup]="form" (ngSubmit)="submit()">
+        <form [formGroup]="form" (ngSubmit)="updateUser()">
           <mat-card-content class="settings__content">
             <mat-form-field appearance="fill">
               <mat-label>メッセージタイトル</mat-label>
@@ -92,6 +92,7 @@
                 [matDatepicker]="picker1"
                 autocomplete="off"
                 formControlName="joinedDate"
+                required
               />
               <mat-datepicker-toggle
                 matSuffix
@@ -137,7 +138,7 @@
             <button
               mat-raised-button
               color="primary"
-              [disabled]="form.invalid || form.pristine"
+              [disabled]="form.invalid || form.pristine || processing"
             >
               {{
                 form.get('isPublic').value

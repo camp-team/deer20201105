@@ -9,5 +9,5 @@ export interface User {
   message: string;
   status: 'leaved' | 'playing';
   joinedDate: firestore.Timestamp;
-  leavedDated: firestore.Timestamp;
+  leavedDate: firestore.Timestamp;
 }
