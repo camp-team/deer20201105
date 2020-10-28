@@ -74,4 +74,7 @@ export class SettingsComponent implements OnInit {
       restoreFocus: false,
     });
   }
+  onCroppedImage(image: string) {
+    console.log(image);
+  }
 }
