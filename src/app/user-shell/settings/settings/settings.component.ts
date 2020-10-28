@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
-import { User } from 'src/app/interfaces/user';
+import { UserData } from 'src/app/interfaces/user-data';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { DeleteUserDialogComponent } from '../../delete-user-dialog/delete-user-dialog.component';
@@ -46,7 +46,7 @@ export class SettingsComponent implements OnInit {
     this.authService.user$
       .pipe(take(1))
       .toPromise()
-      .then((user: User) => {
+      .then((user: UserData) => {
         this.form.patchValue({
           name: user.name || '',
           title: user.title || '',
