@@ -3,7 +3,7 @@ import { firestore } from 'firebase';
 export interface UserData {
   uid: string;
   name: string;
-  avatarURL: string;
+  avatarURL?: string;
   isPublic: boolean;
   title: string;
   message: string;
