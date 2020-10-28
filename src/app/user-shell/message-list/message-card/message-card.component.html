@@ -1,0 +1,21 @@
+<div class="message-card">
+  <h2 class="message-card__title">{{ user.title }}</h2>
+  <div class="message-card__content">
+    {{ user.message }}
+  </div>
+  <div class="message-card__footer">
+    <dl class="message-card__data">
+      <dt>{{ user.name }}</dt>
+      <dd>
+        {{ user.joinedDate?.toDate() | date: 'yyyy.MM.dd' }} -
+        {{
+          user.leavedDate ? (user.leavedDate | date: 'yyyy.MM.dd') : '在籍中'
+        }}
+      </dd>
+    </dl>
+    <div
+      [style.background-image]="'url(' + user.avatarURL + ')'"
+      class="message-card__icon"
+    ></div>
+  </div>
+</div>
