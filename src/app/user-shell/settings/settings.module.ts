@@ -20,6 +20,8 @@ import {
 import { MatDialogModule } from '@angular/material/dialog';
 import { CropperModule } from '@deer-inc/cropper';
 import { JPDateAdapter } from 'src/app/model/jp-date-adapter';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [SettingsComponent],
@@ -32,12 +34,14 @@ import { JPDateAdapter } from 'src/app/model/jp-date-adapter';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatDialogModule,
     CropperModule,
+    SwiperModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'ja-JP' },

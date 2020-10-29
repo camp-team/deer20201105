@@ -31,6 +31,7 @@
     "@deer-inc/cropper": "0.0.9",
     "croppie": "^2.6.5",
     "firebase": "^7.13.1",
+    "ngx-swiper-wrapper": "^8.0.2",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
