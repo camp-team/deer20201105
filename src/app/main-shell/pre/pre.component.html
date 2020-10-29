@@ -12,7 +12,12 @@
           <p>Googleアカウントでログインの上、メッセージを登録してください。</p>
         </div>
         <div class="pre__actions">
-          <ng-container *ngIf="!(authService.user$ | async)">
+          <ng-container *ngIf="authService.user$ | async; else login">
+            <a routerLink="/settings" class="btn-admin">
+              <span>メッセージを編集する</span>
+            </a>
+          </ng-container>
+          <ng-template #login>
             <button
               class="btn-admin"
               [disabled]="authService.loginProcessing"
@@ -24,9 +29,9 @@
                   : 'Googleアカウントでログインする'
               }}</span>
             </button>
-          </ng-container>
-          <a routerLink="/message-list" class="btn-admin">
-            <span>メッセージ一覧をみる</span>
+          </ng-template>
+          <a routerLink="/message-list" class="btn-admin-white">
+            メッセージ一覧をみる
           </a>
         </div>
         <div class="pre__copy">&copy; Team CAMP.</div>
