@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UserData } from 'src/app/interfaces/user-data';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-message-list',
@@ -6,58 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-list.component.scss'],
 })
 export class MessageListComponent implements OnInit {
-  users = [
-    {
-      uid: '1',
-      name: 'ユーザー名',
-      avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      title: 'タイトルが入ります。',
-      message: 'メッセージ本文が入ります。',
-      status: 'leaved',
-      joinedDate: '2019.12',
-      leavedDate: '2020.04',
-    },
-    {
-      uid: '2',
-      name: 'ユーザー名',
-      avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      title: 'タイトルが入ります。',
-      message: 'メッセージ本文が入ります。',
-      status: 'leaved',
-      joinedDate: '2019.12',
-      leavedDate: '2020.04',
-    },
-    {
-      uid: '3',
-      name: 'ユーザー名',
-      avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      title: 'タイトルが入ります。',
-      message: 'メッセージ本文が入ります。',
-      status: 'leaved',
-      joinedDate: '2019.12',
-      leavedDate: '2020.04',
-    },
-    {
-      uid: '4',
-      name: 'ユーザー名',
-      avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      title: 'タイトルが入ります。',
-      message: 'メッセージ本文が入ります。',
-      status: 'playing',
-      joinedDate: '2020.09',
-    },
-    {
-      uid: '5',
-      name: 'ユーザー名',
-      avatarURL: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      title: 'タイトルが入ります。',
-      message: 'メッセージ本文が入ります。',
-      status: 'playing',
-      joinedDate: '2020.09',
-    },
-  ];
+  users$: Observable<UserData[]> = this.userService.getUsers();
 
-  constructor() {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
 }

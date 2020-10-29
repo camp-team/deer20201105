@@ -27,8 +27,8 @@ export class UserService {
     });
   }
 
-  getUsers() {
-    // TODO
+  getUsers(): Observable<UserData[]> {
+    return this.db.collection<UserData>('users').valueChanges();
   }
 
   getUser(uid: string): Observable<UserData> {
