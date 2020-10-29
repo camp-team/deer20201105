@@ -32,6 +32,7 @@
                 matInput
                 autocomplete="off"
                 formControlName="message"
+                rows="4"
                 [maxlength]="messageMaxLength"
                 required
               ></textarea>
@@ -77,6 +78,21 @@
                   }"
                   (image)="onCroppedImage($event)"
                 ></deer-crop-trigger>
+              </div>
+            </div>
+
+            <div class="settings__avatar">
+              <div class="settings__avatar-label">キャラクター選択</div>
+              <div class="settings__swiper">
+                <swiper [config]="swiperConfig" [(index)]="selectedCharacterId">
+                  <div *ngFor="let characterId of characterIds">
+                    <img
+                      src="https://placehold.jp/150x150.png?text=Coming soon"
+                      alt=""
+                    />
+                  </div>
+                </swiper>
+                <div class="settings__swiper-pager"></div>
               </div>
             </div>
 

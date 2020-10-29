@@ -4,6 +4,7 @@ export interface UserData {
   uid: string;
   name: string;
   avatarURL?: string;
+  characterId?: number;
   isPublic: boolean;
   title: string;
   message: string;

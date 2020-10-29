@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { take } from 'rxjs/operators';
 import { UserData } from 'src/app/interfaces/user-data';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,8 +17,21 @@ export class SettingsComponent implements OnInit {
   readonly titleMaxLength = 30;
   readonly messageMaxLength = 500;
   readonly nameMaxLength = 20;
+  readonly swiperConfig: SwiperConfigInterface = {
+    loop: true,
+    observer: true,
+    navigation: true,
+    pagination: {
+      el: '.settings__swiper-pager',
+      clickable: true,
+    },
+    centeredSlides: true,
+    slidesPerView: 3,
+  };
+  readonly characterIds = [...Array(10).map((_, i) => i + 1)];
 
   processing = false;
+  selectedCharacterId = 0;
 
   form = this.fb.group({
     title: [
@@ -57,12 +71,16 @@ export class SettingsComponent implements OnInit {
           leavedDate: user.leavedDate ? user.leavedDate.toDate() : '',
           isPublic: user.isPublic || false,
         });
+        this.selectedCharacterId = user.characterId ? user.characterId - 1 : 0;
       });
   }
 
   async updateUser() {
     const uid: string = this.authService.uid;
-    const formData = this.form.value;
+    const formData = {
+      ...this.form.value,
+      characterId: this.selectedCharacterId + 1,
+    };
     if (this.imageFile !== undefined) {
       const value: UserData = {
         ...formData,

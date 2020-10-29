@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { User } from 'firebase';
 import { Observable } from 'rxjs';
@@ -14,7 +15,8 @@ export class UserService {
   constructor(
     private db: AngularFirestore,
     private snackBar: MatSnackBar,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private router: Router
   ) {}
 
   async createUser(user: User): Promise<void> {
@@ -45,7 +47,12 @@ export class UserService {
       .set(user, { merge: true })
       .then(() => {
         if (user.isPublic) {
-          this.snackBar.open('メッセージを公開しました。');
+          this.snackBar
+            .open('メッセージを公開しました。', '一覧を見る')
+            .onAction()
+            .subscribe(() => {
+              this.router.navigateByUrl('/message-list');
+            });
         } else {
           this.snackBar.open('下書きを保存しました。');
         }
