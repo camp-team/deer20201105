@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as firebase from 'firebase';
 import { User } from 'firebase';
 import { Observable } from 'rxjs';
 import { UserData } from '../interfaces/user-data';
@@ -9,7 +11,11 @@ import { UserData } from '../interfaces/user-data';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private db: AngularFirestore, private snackBar: MatSnackBar) { }
+  constructor(
+    private db: AngularFirestore,
+    private snackBar: MatSnackBar,
+    private storage: AngularFireStorage
+  ) {}
 
   async createUser(user: User): Promise<void> {
     const id = this.db.createId();
@@ -22,7 +28,9 @@ export class UserService {
   }
 
   getUsers(): Observable<UserData[]> {
-    return this.db.collection<UserData>('users', (ref) => ref.where('isPublic', '==', true)).valueChanges();
+    return this.db
+      .collection<UserData>('users', (ref) => ref.where('isPublic', '==', true))
+      .valueChanges();
   }
 
   getUser(uid: string): Observable<UserData> {
@@ -43,5 +51,11 @@ export class UserService {
       .catch(() => {
         this.snackBar.open('更新できませんでした。');
       });
+  }
+  async setImageToStorage(uid: string, file: string): Promise<string> {
+    const resule = await this.storage
+      .ref(`users/${uid}`)
+      .putString(file, firebase.storage.StringFormat.DATA_URL);
+    return resule.ref.getDownloadURL();
   }
 }

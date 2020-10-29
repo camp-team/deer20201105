@@ -71,7 +71,14 @@
             </mat-form-field>
 
             <div class="settings__info">
-              <p>アイコン画像の変更機能を実装してください。</p>
+              <div class="settings__cropper">
+                <deer-crop-trigger
+                  [options]="{
+                    aspectRatio: 1 / 1
+                  }"
+                  (image)="onCroppedImage($event)"
+                ></deer-crop-trigger>
+              </div>
             </div>
 
             <mat-form-field appearance="fill">
@@ -116,7 +123,7 @@
                 matInput
                 [matDatepicker]="picker2"
                 autocomplete="off"
-                formControlName="leavedDated"
+                formControlName="leavedDate"
               />
               <mat-datepicker-toggle
                 matSuffix

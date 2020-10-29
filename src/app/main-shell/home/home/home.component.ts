@@ -11,11 +11,9 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit {
   users$: Observable<UserData[]> = this.userService.getUsers();
 
-  constructor(
-    private userService: UserService,
-  ) { }
+  constructor(private userService: UserService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   openDialog(user) {
     console.log(user);

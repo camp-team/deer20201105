@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserData } from 'src/app/interfaces/user-data';
 
 @Component({
   selector: 'app-message-card',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./message-card.component.scss'],
 })
 export class MessageCardComponent implements OnInit {
-  @Input() user;
+  @Input() user: UserData;
 
   constructor() {}
 

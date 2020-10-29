@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CropperModule } from '@deer-inc/cropper';
 
 @NgModule({
   declarations: [SettingsComponent],
@@ -31,6 +32,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     MatDatepickerModule,
     MatDialogModule,
+    CropperModule,
   ],
 })
 export class SettingsModule {}

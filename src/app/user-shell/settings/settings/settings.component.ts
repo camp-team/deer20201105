@@ -34,6 +34,7 @@ export class SettingsComponent implements OnInit {
     leavedDate: [''],
     isPublic: [false],
   });
+  imageFile: string;
 
   constructor(
     private authService: AuthService,
@@ -59,12 +60,28 @@ export class SettingsComponent implements OnInit {
       });
   }
 
-  updateUser() {
-    this.processing = true;
+  async updateUser() {
+    const uid: string = this.authService.uid;
     const formData = this.form.value;
-    this.userService.updateUser(formData, this.authService.uid).then(() => {
-      this.processing = false;
-    });
+    if (this.imageFile !== undefined) {
+      const value: UserData = {
+        ...formData,
+        avatarURL: this.imageFile,
+      };
+      await this.userService
+        .setImageToStorage(uid, this.imageFile)
+        .then((url) => {
+          this.imageFile = url;
+        });
+      this.userService.updateUser(value, uid).then(() => {
+        this.processing = false;
+      });
+    } else {
+      this.userService.updateUser(formData, uid).then(() => {
+        this.processing = false;
+      });
+    }
+    this.processing = true;
   }
 
   openDeleteUserDialog() {
@@ -73,5 +90,9 @@ export class SettingsComponent implements OnInit {
       autoFocus: false,
       restoreFocus: false,
     });
+  }
+
+  onCroppedImage(image: string) {
+    this.imageFile = image;
   }
 }
