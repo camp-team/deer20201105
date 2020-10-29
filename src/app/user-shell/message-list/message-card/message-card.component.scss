@@ -11,6 +11,8 @@
   box-shadow: $box-shadow-admin;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
   @include sp {
     padding: 16px;
   }
@@ -48,4 +50,34 @@
     height: 44px;
     background: center/cover;
   }
+  &__edit {
+    padding: 64px;
+    border-radius: 50%;
+    background-color: #bdbdbd;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+    cursor: pointer;
+    @include mat-elevation-transition;
+    @include mat-elevation(4);
+    &:hover {
+      padding: 70px;
+      @include mat-elevation(8);
+    }
+  }
+  &__edit-icon {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    margin: 0 0 12px 12px;
+    color: white;
+    &--none {
+      display: none;
+    }
+  }
+}
+
+.message-card__edit {
+  transition: 0.3s;
 }

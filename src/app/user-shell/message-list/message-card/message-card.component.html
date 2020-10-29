@@ -19,5 +19,15 @@
       [style.background-image]="'url(' + user.avatarURL + ')'"
       class="message-card__icon"
     ></div>
+    <a
+      [class.message-card__edit]="user.uid === authService.uid"
+      routerLink="/settings"
+    >
+      <mat-icon
+        class="message-card__edit-icon"
+        [class.message-card__edit-icon--none]="user.uid !== authService.uid"
+        >edit</mat-icon
+      >
+    </a>
   </div>
 </div>
