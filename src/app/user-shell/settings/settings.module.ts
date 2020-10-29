@@ -12,9 +12,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import {
+  DateAdapter,
+  MatNativeDateModule,
+  MAT_DATE_LOCALE,
+} from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CropperModule } from '@deer-inc/cropper';
+import { JPDateAdapter } from 'src/app/model/jp-date-adapter';
 
 @NgModule({
   declarations: [SettingsComponent],
@@ -33,6 +38,10 @@ import { CropperModule } from '@deer-inc/cropper';
     MatDatepickerModule,
     MatDialogModule,
     CropperModule,
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'ja-JP' },
+    { provide: DateAdapter, useClass: JPDateAdapter },
   ],
 })
 export class SettingsModule {}
