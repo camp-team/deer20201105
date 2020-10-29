@@ -6,9 +6,17 @@ import { MessageListComponent } from './message-list/message-list.component';
 import { MessageCardComponent } from './message-card/message-card.component';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [MessageListComponent, MessageCardComponent],
-  imports: [CommonModule, MessageListRoutingModule, MatCardModule],
+  imports: [
+    CommonModule,
+    MessageListRoutingModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
 })
 export class MessageListModule {}
