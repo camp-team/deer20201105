@@ -29,7 +29,9 @@ export class UserService {
 
   getUsers(): Observable<UserData[]> {
     return this.db
-      .collection<UserData>('users', (ref) => ref.where('isPublic', '==', true))
+      .collection<UserData>('users', (ref) =>
+        ref.where('isPublic', '==', true).orderBy('joinedDate')
+      )
       .valueChanges();
   }
 

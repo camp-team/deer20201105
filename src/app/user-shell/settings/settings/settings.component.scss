@@ -1,4 +1,6 @@
 @import '~@angular/material/theming';
+@import 'variables';
+@import 'mixins';
 
 .mat-card {
   padding: 24px 16px;
@@ -17,14 +19,28 @@ mat-form-field {
     max-width: 640px;
     margin: 0 auto;
   }
-  &__content {
-    padding-top: 24px;
+  &__title {
+    font-size: 24px;
+    color: $color-gradient-admin-middle;
   }
-  &__info {
+  &__box {
+    box-sizing: border-box;
+    padding: 32px 24px 40px;
+    border-radius: 8px;
+    box-shadow: $box-shadow-admin;
+    background-color: #fff;
+    @include sp {
+      padding: 24px 16px;
+    }
+  }
+  &__avatar {
     margin-top: 24px;
     padding: 16px 0;
     text-align: center;
-    background-color: #eee;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  &__avatar-label {
+    margin-bottom: 12px;
   }
   &__cropper {
     width: 232px;
@@ -35,11 +51,12 @@ mat-form-field {
     text-align: center;
   }
   &__actions {
-    text-align: center;
+    max-width: 340px;
+    margin: 32px auto 0;
   }
   &__footer {
     margin-top: 60px;
-    color: map-get($mat-grey, 600);
+    color: rgba(255, 255, 255, 0.45);
     text-align: center;
     span {
       cursor: pointer;

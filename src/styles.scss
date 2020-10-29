@@ -94,6 +94,11 @@ mat-form-field {
   &:hover::before {
     opacity: 1;
   }
+  &:disabled {
+    pointer-events: none;
+    background: map-get($mat-grey, 700);
+    opacity: 0.2;
+  }
   span {
     position: relative;
   }

@@ -27,7 +27,7 @@
     padding: 32px;
     border-radius: 16px;
     background-color: #fff;
-    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+    box-shadow: $box-shadow-admin;
     @include sp {
       padding: 24px;
       border-radius: 8px;

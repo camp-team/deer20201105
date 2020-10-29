@@ -53,8 +53,8 @@ export class SettingsComponent implements OnInit {
           title: user.title || '',
           message: user.message || '',
           status: user.status || '',
-          joinedDate: user.joinedDate || '',
-          leavedDate: user.leavedDate || '',
+          joinedDate: user.joinedDate ? user.joinedDate.toDate() : '',
+          leavedDate: user.leavedDate ? user.leavedDate.toDate() : '',
           isPublic: user.isPublic || false,
         });
       });
@@ -94,5 +94,15 @@ export class SettingsComponent implements OnInit {
 
   onCroppedImage(image: string) {
     this.imageFile = image;
+  }
+
+  toggleBtnText(isPublic: boolean, pristine: boolean): string {
+    if (isPublic && pristine) {
+      return 'メッセージ公開中';
+    } else if (isPublic && !pristine) {
+      return 'メッセージを公開する';
+    } else {
+      return '下書きを保存する';
+    }
   }
 }

@@ -7,9 +7,11 @@
     <dl class="message-card__data">
       <dt>{{ user.name }}</dt>
       <dd>
-        {{ user.joinedDate?.toDate() | date: 'yyyy.MM.dd' }} -
+        {{ user.joinedDate?.toDate() | date: 'y/MM/dd' }} -
         {{
-          user.leavedDate ? (user.leavedDate | date: 'yyyy.MM.dd') : '在籍中'
+          user.status == 'leaved' && user.leavedDate
+            ? (user.leavedDate.toDate() | date: 'y/MM/dd')
+            : '在籍中'
         }}
       </dd>
     </dl>
