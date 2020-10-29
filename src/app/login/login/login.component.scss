@@ -1,6 +1,11 @@
+@import '~@angular/material/theming';
+@import 'variables';
+@import 'mixins';
+
 :host {
   display: block;
   height: 100%;
+  background-image: $gradient-admin-main;
 }
 
 .login {
@@ -15,10 +20,52 @@
     justify-content: center;
     flex-direction: column;
   }
-  &__message {
-    font-size: 18px;
+  &__box {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+    @include sp {
+      padding: 24px;
+      border-radius: 8px;
+    }
+  }
+  &__title {
+    color: $color-gradient-admin-middle;
+    background-image: $gradient-admin-main;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: $font-admin-en;
+    font-size: 40px;
+    text-align: center;
+  }
+  &__subtitle {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    color: map-get($mat-grey, 700);
+  }
+  &__messages {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: map-get($mat-grey, 800);
+    p + p {
+      margin-top: 0.25em;
+    }
   }
   &__actions {
-    margin-top: 20px;
+    margin-top: 32px;
+    text-align: center;
+  }
+  &__copy {
+    margin-top: 32px;
+    color: map-get($mat-grey, 600);
+    font-size: 12px;
+    text-align: center;
   }
 }

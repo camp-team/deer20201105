@@ -6,8 +6,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     loadChildren: () =>
       import('./main-shell/main-shell.module').then((m) => m.MainShellModule),
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./user-shell/user-shell.module').then((m) => m.UserShellModule),
   },
   {
     path: 'login',
@@ -15,11 +21,6 @@ const routes: Routes = [
       import('./login/login.module').then((m) => m.LoginModule),
     canLoad: [UserGuard],
     canActivate: [UserGuard],
-  },
-  {
-    path: 'settings',
-    loadChildren: () =>
-      import('./user-shell/user-shell.module').then((m) => m.UserShellModule),
   },
   {
     path: '**',

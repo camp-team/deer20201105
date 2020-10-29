@@ -8,7 +8,8 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, BlinkMacSystemFont, Hiragino Kaku Gothic ProN,
+    Hiragino Sans, Meiryo, sans-serif;
   color: map-get($mat-grey, 900);
 }
 
@@ -58,5 +59,42 @@ mat-form-field {
   padding: 0 24px;
   @include sp {
     padding: 0 16px;
+  }
+}
+
+.btn-admin {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  background: $gradient-admin-main;
+  border-radius: 48px;
+  padding: 12px 24px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  overflow: hidden;
+  @include sp {
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: $color-gradient-admin-middle;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.6s;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+  span {
+    position: relative;
   }
 }

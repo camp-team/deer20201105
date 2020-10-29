@@ -28,7 +28,9 @@ export class UserService {
   }
 
   getUsers(): Observable<UserData[]> {
-    return this.db.collection<UserData>('users').valueChanges();
+    return this.db
+      .collection<UserData>('users', (ref) => ref.where('isPublic', '==', true))
+      .valueChanges();
   }
 
   getUser(uid: string): Observable<UserData> {

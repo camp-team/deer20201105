@@ -1,3 +1,7 @@
+@import '~@angular/material/theming';
+@import 'variables';
+@import 'mixins';
+
 :host {
   display: block;
   height: 100%;
@@ -16,9 +20,20 @@
     flex-direction: column;
   }
   &__message {
-    font-size: 32px;
+    font-size: 48px;
+    font-family: $font-admin-en;
+    color: map-get($mat-grey, 800);
+    @include sp {
+      font-size: 32px;
+    }
+  }
+  &__text {
+    margin-top: 20px;
+    color: map-get($mat-grey, 800);
   }
   &__actions {
-    margin-top: 20px;
+    margin: 40px auto 0;
+    width: 100%;
+    max-width: 320px;
   }
 }
