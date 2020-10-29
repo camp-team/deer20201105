@@ -9,9 +9,15 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { PreComponent } from './pre/pre.component';
 
 @NgModule({
-  declarations: [MainShellComponent, MainFooterComponent, MainHeaderComponent],
+  declarations: [
+    MainShellComponent,
+    MainFooterComponent,
+    MainHeaderComponent,
+    PreComponent,
+  ],
   imports: [
     CommonModule,
     MainShellRoutingModule,

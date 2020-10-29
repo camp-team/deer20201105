@@ -18,9 +18,14 @@
   align-items: center;
   display: flex;
   &__logo {
+    padding-right: 0.25em;
     font-size: 24px;
     margin-right: auto;
     font-family: $font-admin-en;
+    color: $color-gradient-admin-middle;
+    background-image: $gradient-admin-main;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   &__icon {
     margin-left: 8px;
