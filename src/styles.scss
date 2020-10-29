@@ -103,3 +103,34 @@ mat-form-field {
     position: relative;
   }
 }
+
+.btn-admin-white {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  border: 2px solid $color-gradient-admin-middle;
+  background-color: #fff;
+  border-radius: 48px;
+  padding: 12px 24px;
+  width: 100%;
+  color: $color-gradient-admin-middle;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  overflow: hidden;
+  transition: 0.6s;
+  @include sp {
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  &:hover {
+    background-color: $color-gradient-admin-middle;
+    color: #fff;
+  }
+  &:disabled {
+    pointer-events: none;
+    background: map-get($mat-grey, 700);
+    opacity: 0.2;
+  }
+}

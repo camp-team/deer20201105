@@ -2,10 +2,10 @@
   <div class="container">
     <div class="settings__inner">
       <div class="settings__box">
-        <h1 class="settings__title">メッセージ登録・編集</h1>
+        <h1 class="settings__title">メッセージ編集・ユーザー設定</h1>
         <form [formGroup]="form" (ngSubmit)="updateUser()">
           <div class="settings__content">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
               <mat-label>メッセージタイトル</mat-label>
               <input
                 matInput
@@ -26,7 +26,7 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>メッセージ本文</mat-label>
               <textarea
                 matInput
