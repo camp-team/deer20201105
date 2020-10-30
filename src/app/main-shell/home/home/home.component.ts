@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  chars = new Array(30);
   users$: Observable<UserData[]> = this.userService.getUsers();
 
   constructor(private userService: UserService) {}
