@@ -70,18 +70,22 @@
         />
       </ng-container>
     </div>
-    <img cdkDrag src="assets/images/char-0.png" width="400" height="400" />
 
-    <img
-      class="home__date"
-      src="assets/images/date.svg"
-      width="200"
-      height="100"
-    />
-    <div class="home__action">
-      <button class="home__btn">メッセージを見る GO ▼</button>
+    <div class="hero">
+      <img
+        class="home__date"
+        src="assets/images/date.svg"
+        width="200"
+        height="100"
+      />
+      <img cdkDrag src="assets/images/char-0.png" width="400" height="400" />
+      <div class="home__action">
+        <button class="home__btn" (click)="scrollTo('messages')">
+          メッセージを見る GO ▼
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
-<app-time-line></app-time-line>
+<app-time-line id="messages"></app-time-line>

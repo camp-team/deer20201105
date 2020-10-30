@@ -4,6 +4,7 @@
 .home {
   background: url(../../../../assets/images/bg.png) no-repeat center/cover;
   height: 100vh;
+  position: relative;
   &__inner {
     padding: 32px;
     height: 100vh;
@@ -39,6 +40,11 @@
     width: 300px;
     margin: 0 auto;
     text-align: center;
+  }
+  &__action {
+    animation: fuwafuwa 3s linear 0s infinite;
+    display: block;
+    margin: 0 auto;
   }
   &__btn {
     display: block;
@@ -128,4 +134,12 @@
 .group-c {
   width: 38%;
   float: left;
+}
+
+.hero {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  bottom: 96px;
+  right: 120px;
 }
