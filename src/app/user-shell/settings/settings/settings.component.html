@@ -85,11 +85,8 @@
               <div class="settings__avatar-label">キャラクター選択</div>
               <div class="settings__swiper">
                 <swiper [config]="swiperConfig" [(index)]="selectedCharacterId">
-                  <div *ngFor="let characterId of characterIds">
-                    <img
-                      src="https://placehold.jp/150x150.png?text=Coming soon"
-                      alt=""
-                    />
+                  <div *ngFor="let characterId of characterIds; index as i">
+                    <img src="assets/images/char-{{ i + 1 }}.png" alt="" />
                   </div>
                 </swiper>
                 <div class="settings__swiper-pager"></div>
