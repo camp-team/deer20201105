@@ -1,0 +1,17 @@
+.time-line {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    -45deg,
+    #566ca8 25%,
+    #9cb0e9 25%,
+    #9cb0e9 50%,
+    #566ca8 50%,
+    #566ca8 75%,
+    #9cb0e9 75%,
+    #9cb0e9
+  );
+  background-size: 40px 40px;
+  background-attachment: fixed;
+  opacity: 0.5;
+}
