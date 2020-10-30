@@ -1,0 +1,26 @@
+.time-line {
+  width: 100%;
+  background-image: linear-gradient(
+    -45deg,
+    #566ca8 25%,
+    #9cb0e9 25%,
+    #9cb0e9 50%,
+    #566ca8 50%,
+    #566ca8 75%,
+    #9cb0e9 75%,
+    #9cb0e9
+  );
+  background-size: 40px 40px;
+  background-attachment: fixed;
+}
+
+mgl-timeline-entry-dot {
+  background: center/cover no-repeat;
+}
+
+mgl-timeline-entry-side {
+  background: #fafafa;
+  border-radius: 6px;
+  color: #424242;
+  padding: 16px;
+}

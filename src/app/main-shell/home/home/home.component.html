@@ -1,18 +1,91 @@
 <div class="home">
-  <div class="container">
-    <div class="home__inner">
-      <h1 class="home__title">Happy Birthday 🥳</h1>
-      <div class="home__list">
-        <app-user-card
-          *ngFor="let user of users$ | async"
-          [user]="user"
-        ></app-user-card>
-      </div>
-      <div class="home__dev">
-        <p>
-          アイコンをクリックしたら、モーダルでメッセージ本文等が表示される仕様です。（未実装）
-        </p>
+  <div class="home__inner">
+    <img
+      class="home__balloon home__bolloon--0"
+      src="assets/images/balloon-0.svg"
+      width="120"
+      height="120"
+    />
+    <img
+      class="home__balloon home__balloon--1"
+      src="assets/images/balloon-1.svg"
+      width="200"
+      height="400"
+    />
+    <img
+      class="home__balloon home__balloon--2"
+      src="assets/images/balloon-2.svg"
+      width="200"
+      height="400"
+    />
+    <img
+      class="home__balloon home__balloon--3"
+      src="assets/images/balloon-3.svg"
+      width="200"
+      height="400"
+    />
+    <img
+      class="home__balloon home__balloon--4"
+      src="assets/images/balloon-4.svg"
+      width="200"
+      height="400"
+    />
+    <img
+      class="home__balloon home__balloon--5"
+      src="assets/images/balloon-5.svg"
+      width="200"
+      height="400"
+    />
+
+    <div class="group-a">
+      <ng-container *ngFor="let char of chars | slice: 1:10; index as i">
+        <img
+          class="home__char"
+          cdkDrag
+          src="assets/images/char-{{ i + 1 }}.png"
+          width="160"
+          height="160"
+        />
+      </ng-container>
+    </div>
+    <div class="group-b">
+      <ng-container *ngFor="let char of chars | slice: 11:19; index as i">
+        <img
+          class="home__char"
+          cdkDrag
+          src="assets/images/char-{{ i + 10 }}.png"
+          width="160"
+          height="160"
+        />
+      </ng-container>
+    </div>
+    <div class="group-c">
+      <ng-container *ngFor="let char of chars | slice: 20; index as i">
+        <img
+          class="home__char"
+          cdkDrag
+          src="assets/images/char-{{ i + 19 }}.png"
+          width="160"
+          height="160"
+        />
+      </ng-container>
+    </div>
+
+    <div class="hero">
+      <img
+        class="home__date"
+        src="assets/images/date.svg"
+        width="200"
+        height="100"
+      />
+      <img cdkDrag src="assets/images/char-0.png" width="400" height="400" />
+      <div class="home__action">
+        <button class="home__btn" (click)="scrollTo('messages')">
+          メッセージを見る GO ▼
+        </button>
       </div>
     </div>
   </div>
 </div>
+
+<app-time-line id="messages"></app-time-line>
