@@ -3,24 +3,202 @@
   background-image: linear-gradient(
     -45deg,
     #566ca8 25%,
-    #9cb0e9 25%,
-    #9cb0e9 50%,
+    #4a61a1 25%,
+    #4a61a1 50%,
     #566ca8 50%,
     #566ca8 75%,
-    #9cb0e9 75%,
-    #9cb0e9
+    #4a61a1 75%,
+    #4a61a1
   );
   background-size: 40px 40px;
   background-attachment: fixed;
+  position: relative;
+  padding: 160px 0 120px;
+  font-family: 'M+ P Type-1 (basic latin) Black',
+    'M+ Type-1 (general-j) Regular';
+}
+
+.giza {
+  position: absolute;
+  width: 100%;
+  height: 21px;
+  margin-top: -9px;
+  top: 0;
+  background: url(/assets/images/bg-giza.png) repeat-x;
+  &--end {
+    top: 100%;
+    bottom: 0;
+  }
+}
+
+.deco {
+  img {
+    width: 40%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    transform: rotate(-13deg);
+  }
+  &--end img {
+    top: 94%;
+    left: 62%;
+    bottom: 54px;
+  }
+  .star {
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    z-index: 101;
+    transform: rotate(-45deg);
+    &:nth-of-type(2) {
+      top: 10%;
+      left: 80%;
+    }
+    &:nth-of-type(3) {
+      top: 90%;
+      left: 10%;
+    }
+    &:nth-of-type(4) {
+      top: 30%;
+      left: 90%;
+    }
+    small {
+      margin-left: 24px;
+    }
+  }
+}
+
+mgl-timeline-entry-header {
+  height: 240px;
+  overflow: visible;
+  position: relative;
+  background: #303030;
+  color: #fafafa;
+  cursor: pointer;
+  img {
+    position: absolute;
+    top: 10%;
+    left: -30%;
+    z-index: 101;
+  }
+  span {
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: flash 2s linear infinite;
+  }
 }
 
 mgl-timeline-entry-dot {
   background: center/cover no-repeat;
+  background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  cursor: pointer;
+}
+
+mgl-timeline-entry-content {
+  white-space: pre-wrap;
 }
 
 mgl-timeline-entry-side {
   background: #fafafa;
   border-radius: 6px;
-  color: #424242;
-  padding: 16px;
+  color: #303030;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'M+ P Type-1 (basic latin) Black';
+  padding: 8px;
+  span {
+    display: block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    color: #fafafa;
+    background: #e60117;
+    position: absolute;
+    top: 4px;
+    right: 32px;
+    transform: rotate(-15deg);
+    &::before {
+      position: absolute;
+      left: -20%;
+      top: 40%;
+      content: ' ';
+      width: 0;
+      height: 0;
+      border: solid transparent;
+      border-width: 5px 10px;
+      border-left-color: #e60117;
+      transform: rotate(-15deg);
+      animation: flash 2s linear infinite;
+    }
+    &::after {
+      position: absolute;
+      left: 106%;
+      top: 20%;
+      content: ' ';
+      width: 0;
+      height: 0;
+      border: solid transparent;
+      border-width: 5px 10px;
+      border-right-color: #e60117;
+      transform: rotate(-15deg);
+      animation: flash 2s linear infinite;
+    }
+  }
+}
+
+mgl-timeline-entry:nth-child(odd) mgl-timeline-entry-side span {
+  left: 32px;
+}
+
+mgl-timeline-entry:nth-child(odd) mgl-timeline-entry-header span {
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: flash 2s linear infinite;
+}
+
+mgl-timeline-entry:nth-child(odd) img {
+  left: 80%;
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes purupuru {
+  0% {
+    transform: translate(2px, 0px);
+  }
+  5% {
+    transform: translate(-2px, 0px);
+  }
+  10% {
+    transform: translate(2px, 0px);
+  }
+  15% {
+    transform: translate(-2px, 0px);
+  }
+  20% {
+    transform: translate(2px, 0px);
+  }
+  25% {
+    transform: translate(-2px, 0px);
+  }
+  30% {
+    transform: translate(0px, 0px);
+  }
 }

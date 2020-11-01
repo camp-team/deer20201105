@@ -1,5 +1,5 @@
 <div class="home">
-  <div class="home__inner">
+  <div class="home__inner" id="top">
     <img
       class="home__balloon home__bolloon--0"
       src="assets/images/balloon-0.svg"
@@ -78,7 +78,9 @@
         width="200"
         height="100"
       />
-      <img cdkDrag src="assets/images/char-0.png" width="400" height="400" />
+      <figure class="home__hero">
+        <img cdkDrag src="assets/images/char-0.png" width="400" height="400" />
+      </figure>
       <div class="home__action">
         <button class="home__btn" (click)="scrollTo('messages')">
           メッセージを見る GO ▼
@@ -89,3 +91,4 @@
 </div>
 
 <app-time-line id="messages"></app-time-line>
+<app-closing></app-closing>

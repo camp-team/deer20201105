@@ -140,3 +140,23 @@ mat-form-field {
     opacity: 0.2;
   }
 }
+
+mgl-timeline .mgl-timeline-line {
+  background: linear-gradient(
+    to bottom,
+    red 5.3%,
+    orange 23.3%,
+    orange 19.6%,
+    yellow 37.6%,
+    yellow 33.9%,
+    green 51.9%,
+    green 48.2%,
+    aqua 66.2%,
+    aqua 62.5%,
+    blue 80.5%,
+    blue 76.8%,
+    purple 94.8%
+  ) !important;
+  top: 56px !important;
+  border-radius: 8px;
+}
