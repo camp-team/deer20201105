@@ -17,14 +17,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  &__link {
-    display: inline-block;
-    // background: $gradient-admin-main;
+  &__btn {
     background-color: $color-gradient-admin-middle;
-    font-weight: 700;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    box-shadow: 0 10px 60px -10px #6b8dd6;
+    z-index: 100;
   }
 }
