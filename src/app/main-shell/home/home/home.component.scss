@@ -70,10 +70,6 @@
       left: 84%;
     }
   }
-  &__char {
-    max-width: 20%;
-    animation: bress 3s linear 0s infinite;
-  }
 }
 
 .hero {
@@ -132,14 +128,11 @@
     animation: fuwafuwa 3s linear 0s infinite;
   }
   &__btn {
-    display: block;
     margin: 0 auto;
-    font-style: normal;
     font-weight: normal;
     letter-spacing: 2px;
     font-size: 22px;
     line-height: 40px;
-    text-transform: uppercase;
     background: #f4157e;
     color: #fff;
     appearance: none;
