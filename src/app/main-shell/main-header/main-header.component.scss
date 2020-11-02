@@ -1,28 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
 :host {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  padding: 8px 24px;
   z-index: 1000;
+  @include sp {
+    padding: 8px 16px;
+  }
 }
 
 .header {
-  box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  min-height: 48px;
-  display: flex;
-  background: #fff;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px 0px;
-  &__logo {
-    font-size: 16px;
-    margin-right: auto;
-  }
-  &__icon {
-    margin-left: 8px;
-    box-shadow: none;
-    background-color: #ccc;
-    background: center / cover;
+  justify-content: flex-end;
+  &__link {
+    display: inline-block;
+    // background: $gradient-admin-main;
+    background-color: $color-gradient-admin-middle;
+    font-weight: 700;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    box-shadow: 0 10px 60px -10px #6b8dd6;
   }
 }
