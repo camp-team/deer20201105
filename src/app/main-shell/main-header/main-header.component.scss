@@ -1,24 +1,16 @@
 @import 'variables';
 @import 'mixins';
 
-:host {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 8px 24px;
-  z-index: 1000;
-  @include sp {
-    padding: 8px 16px;
-  }
-}
-
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   &__btn {
+    position: fixed;
     background-color: $color-gradient-admin-middle;
-    z-index: 100;
+    top: 12px;
+    right: 24px;
+    z-index: 1000;
+    @include sp {
+      top: 8px;
+      right: 16px;
+    }
   }
 }
