@@ -1,88 +1,75 @@
 <div class="home">
   <div class="home__inner" id="top">
     <img
-      class="home__balloon home__bolloon--0"
+      class="home__balloon home__balloon--0"
       src="assets/images/balloon-0.svg"
-      width="120"
-      height="120"
+      width="200"
+      height="480"
     />
     <img
       class="home__balloon home__balloon--1"
       src="assets/images/balloon-1.svg"
-      width="200"
-      height="400"
+      width="120"
     />
     <img
       class="home__balloon home__balloon--2"
       src="assets/images/balloon-2.svg"
-      width="200"
-      height="400"
+      width="120"
     />
     <img
       class="home__balloon home__balloon--3"
       src="assets/images/balloon-3.svg"
-      width="200"
-      height="400"
+      width="120"
     />
     <img
       class="home__balloon home__balloon--4"
       src="assets/images/balloon-4.svg"
-      width="200"
-      height="400"
+      width="120"
     />
     <img
       class="home__balloon home__balloon--5"
       src="assets/images/balloon-5.svg"
-      width="200"
-      height="400"
+      width="120"
+    />
+    <img
+      class="home__balloon home__balloon--6"
+      src="assets/images/balloon-6.svg"
+      width="240"
+      height="480"
+    />
+    <img
+      class="home__balloon home__balloon--7"
+      src="assets/images/balloon-3.svg"
+      width="120"
+    />
+    <img
+      class="home__balloon home__balloon--8"
+      src="assets/images/balloon-4.svg"
+      width="120"
+    />
+    <img
+      class="home__balloon home__balloon--9"
+      src="assets/images/balloon-5.svg"
+      width="120"
+    />
+    <img
+      class="home__balloon home__balloon--10"
+      src="assets/images/balloon-4.svg"
+      width="120"
+    />
+    <img
+      class="home__balloon home__balloon--11"
+      src="assets/images/balloon-5.svg"
+      width="120"
     />
 
-    <div class="group-a">
-      <ng-container *ngFor="let char of chars | slice: 1:10; index as i">
-        <img
-          class="home__char"
-          cdkDrag
-          src="assets/images/char-{{ i + 1 }}.png"
-          width="160"
-          height="160"
-        />
-      </ng-container>
-    </div>
-    <div class="group-b">
-      <ng-container *ngFor="let char of chars | slice: 11:19; index as i">
-        <img
-          class="home__char"
-          cdkDrag
-          src="assets/images/char-{{ i + 10 }}.png"
-          width="160"
-          height="160"
-        />
-      </ng-container>
-    </div>
-    <div class="group-c">
-      <ng-container *ngFor="let char of chars | slice: 20; index as i">
-        <img
-          class="home__char"
-          cdkDrag
-          src="assets/images/char-{{ i + 19 }}.png"
-          width="160"
-          height="160"
-        />
-      </ng-container>
-    </div>
-
     <div class="hero">
-      <img
-        class="home__date"
-        src="assets/images/date.svg"
-        width="200"
-        height="100"
-      />
-      <figure class="home__hero">
-        <img cdkDrag src="assets/images/char-0.png" width="400" height="400" />
+      <img class="hero__date" src="assets/images/date.svg" />
+      <figure class="hero__hero">
+        <img cdkDrag src="assets/images/char-0.png" />
       </figure>
-      <div class="home__action">
-        <button class="home__btn" (click)="scrollTo('messages')">
+      <div class="hero__action">
+        <button class="hero__btn" (click)="scrollTo('messages')">
           メッセージを見る GO ▼
         </button>
       </div>
