@@ -28,7 +28,7 @@ export class SettingsComponent implements OnInit {
     centeredSlides: true,
     slidesPerView: 3,
   };
-  readonly characterIds = [...Array(47).map((_, i) => i + 1)];
+  readonly characterIds = [...Array(51).map((_, i) => i + 1)];
 
   processing = false;
   selectedCharacterId = 0;
