@@ -35,6 +35,7 @@ export class SettingsComponent implements OnInit {
     isPublic: [false],
   });
   imageFile: string;
+  oldImageUrl: string;
 
   constructor(
     private authService: AuthService,
@@ -48,6 +49,7 @@ export class SettingsComponent implements OnInit {
       .pipe(take(1))
       .toPromise()
       .then((user: UserData) => {
+        this.oldImageUrl = user.avatarURL;
         this.form.patchValue({
           name: user.name || '',
           title: user.title || '',

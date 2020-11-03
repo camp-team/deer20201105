@@ -70,10 +70,11 @@
 
             <div class="settings__avatar">
               <div class="settings__avatar-label">アイコン画像</div>
-              <div class="settings__cropper">
+              <div class="settings__cropper" *ngIf="oldImageUrl">
                 <deer-crop-trigger
                   [options]="{
-                    aspectRatio: 1 / 1
+                    aspectRatio: 1 / 1,
+                    oldImageUrl: oldImageUrl
                   }"
                   (image)="onCroppedImage($event)"
                 ></deer-crop-trigger>
