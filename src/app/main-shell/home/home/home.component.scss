@@ -2,23 +2,204 @@
 @import 'mixins';
 
 .home {
+  background: url(/assets/images/bg.png) no-repeat center/cover;
+  height: 100vh;
+  position: relative;
+  @include pc-s {
+    background: url(/assets/images/bg-pc-s.png) no-repeat center/cover;
+  }
+  @include sp {
+    background: url(/assets/images/bg-sp.png) no-repeat center/cover;
+  }
   &__inner {
-    padding: 60px 0;
+    padding: 32px;
+    height: 100vh;
   }
-  &__title {
-    text-align: center;
-  }
-  &__list {
-    margin-top: 20px;
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: 1fr 1fr 1fr;
+  &__balloon {
+    position: absolute;
+    animation: fuwafuwa 3s linear 0s infinite;
     @include sp {
-      grid-template-columns: 1fr;
+      display: none;
+    }
+    &--0 {
+      top: 10%;
+      left: 0;
+    }
+    &--1 {
+      top: 50%;
+      left: 70%;
+    }
+    &--2 {
+      top: 15%;
+      left: 80%;
+    }
+    &--3 {
+      top: 75%;
+      left: 63%;
+    }
+    &--4 {
+      top: 65%;
+      left: 72%;
+    }
+    &--5 {
+      top: 70%;
+      left: 60%;
+    }
+    &--6 {
+      top: 5%;
+      left: 36%;
+    }
+    &--7 {
+      top: 0;
+      left: 3%;
+    }
+    &--8 {
+      top: 3%;
+      left: 5%;
+    }
+    &--9 {
+      top: 5%;
+      left: 1%;
+    }
+    &--10 {
+      top: 25%;
+      left: 82%;
+    }
+    &--11 {
+      top: 20%;
+      left: 84%;
     }
   }
-  &__dev {
-    margin-top: 32px;
-    text-align: center;
+}
+
+.hero {
+  max-width: 20%;
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  bottom: 64px;
+  right: 24px;
+  z-index: 200;
+  @include pc-s {
+    right: 0;
+  }
+  @include sp {
+    max-width: 100%;
+    position: static;
+  }
+  &__hero {
+    max-width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    img {
+      max-width: 100%;
+      position: fixed;
+      bottom: 64px;
+      @include pc-s {
+        width: 300px;
+        bottom: 16px;
+      }
+      @include sp {
+        width: 200px;
+        position: absolute;
+        bottom: 16px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  &__date {
+    max-width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: -300%;
+    right: 0;
+    @include sp {
+      max-width: 60%;
+      top: 24px;
+      left: 0;
+    }
+  }
+  &__action {
+    animation: fuwafuwa 3s linear 0s infinite;
+  }
+  &__btn {
+    margin: 0 auto;
+    font-weight: normal;
+    letter-spacing: 2px;
+    font-size: 22px;
+    line-height: 40px;
+    background: #f4157e;
+    color: #fff;
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    min-width: 20%;
+    padding: 16px 24px;
+    box-shadow: 0 10px 60px -10px #cd106e;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    transform-style: preserve-3d;
+    transform: perspective(250px) scale3d(1, 1, 1);
+    transition: all 1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+    outline: none;
+    position: relative;
+    z-index: 102;
+    @include pc-s {
+      font-size: 16px;
+      padding: 8px 16px;
+    }
+    @include sp {
+      display: none;
+    }
+    &:hover {
+      background: lighten(#f4157e, 2%);
+      box-shadow: 0 8px 65px -5px #cd106e;
+    }
+    &:active {
+      background: #cd106e;
+      box-shadow: 0 10px 60px -10px #cd106e;
+      transform: perspective(250px) scale3d(1, 1, 1) translateY(5%) !important;
+    }
+    span {
+      display: block;
+    }
+  }
+}
+
+@keyframes fuwafuwa {
+  0% {
+    transform: translateY(0%);
+  }
+  20% {
+    transform: translateY(1%);
+  }
+  50% {
+    transform: translateY(2%);
+  }
+  80% {
+    transform: translateY(1%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes bress {
+  0% {
+    transform: scale(1, 1);
+  }
+  20% {
+    transform: scale(1, 1.01);
+  }
+  50% {
+    transform: scale(1, 0.99);
+  }
+  80% {
+    transform: scale(1, 1.01);
+  }
+  100% {
+    transform: scale(1, 1);
   }
 }

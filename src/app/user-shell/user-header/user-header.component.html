@@ -1,14 +1,9 @@
 <mat-toolbar class="header">
   <h1 class="header__logo">
-    <a routerLink="/">LOGO</a>
+    <a routerLink="/">Dear</a>
   </h1>
-  <a
-    routerLink="/message-list"
-    mat-button
-    class="example-icon"
-    aria-label="メッセージ一覧を見る"
-  >
-    メッセージ一覧へ
+  <a routerLink="/message-list" mat-button aria-label="メッセージ一覧">
+    メッセージ一覧
   </a>
   <ng-container *ngIf="authService.user$ | async as user">
     <button
@@ -19,8 +14,8 @@
     ></button>
     <mat-menu #userMenu="matMenu" class="header__menu">
       <a mat-menu-item routerLink="/settings">
-        <mat-icon>settings</mat-icon>
-        <span>設定</span>
+        <mat-icon>edit</mat-icon>
+        <span>編集</span>
       </a>
       <button mat-menu-item (click)="authService.logout()">
         <mat-icon>exit_to_app</mat-icon>

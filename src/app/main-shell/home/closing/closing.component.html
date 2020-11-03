@@ -1,0 +1,26 @@
+<div class="closing">
+  <div class="deco">
+    <img src="assets/images/flag.png" alt="" />
+  </div>
+
+  <div class="heading">
+    <h2>ninoさん<span></span>いつもありがとうございます！</h2>
+    <p>🎉ステキな1年にしましょう🥳</p>
+  </div>
+
+  <div class="flex">
+    <div class="users" *ngFor="let user of users$ | async">
+      <img
+        data-aos="fade-in"
+        src="assets/images/char-{{ user.characterId }}.png"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div class="action">
+    <button class="action__btn" (click)="scrollTo('top')">
+      トップに戻る ▶︎
+    </button>
+  </div>
+</div>

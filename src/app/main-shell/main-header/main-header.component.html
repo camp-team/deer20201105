@@ -1,26 +1,12 @@
-<header class="header">
-  <h1 class="header__logo">
-    <a routerLink="/">LOGO</a>
-  </h1>
-  <div class="header__actions">
-    <a href="/message-list" class="header__link">メッセージ一覧をみる</a>
-    <ng-container *ngIf="authService.user$ | async as user">
-      <button
-        mat-mini-fab
-        [matMenuTriggerFor]="userMenu"
-        [style.background-image]="'url(' + user.avatarURL + ')'"
-        class="header__icon"
-      ></button>
-      <mat-menu #userMenu="matMenu" class="header__menu">
-        <a mat-menu-item routerLink="/settings">
-          <mat-icon>settings</mat-icon>
-          <span>設定</span>
-        </a>
-        <button mat-menu-item (click)="authService.logout()">
-          <mat-icon>exit_to_app</mat-icon>
-          <span>ログアウト</span>
-        </button>
-      </mat-menu>
-    </ng-container>
-  </div>
-</header>
+<div class="header">
+  <a
+    class="header__btn"
+    routerLink="/message-list"
+    matTooltip="メッセージを一覧で見る"
+    mat-fab
+    color="primary"
+    aria-label="メッセージ一覧"
+  >
+    <mat-icon>list</mat-icon>
+  </a>
+</div>

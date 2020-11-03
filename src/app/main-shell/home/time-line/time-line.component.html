@@ -1,0 +1,42 @@
+<div class="time-line">
+  <span class="giza"></span>
+  <div class="deco">
+    <img src="assets/images/flag.png" alt="" />
+    <p class="star" *ngFor="let star of stars">⭐️<small>⭐️</small></p>
+  </div>
+  <div class="container">
+    <mgl-timeline>
+      <mgl-timeline-entry *ngFor="let user of users$ | async as users">
+        <mgl-timeline-entry-header
+          ><img
+            data-aos="zoom-in"
+            src="assets/images/char-{{ user.characterId }}.png"
+            alt=""
+          />
+
+          <p>{{ user.name }}</p>
+          <span>💌</span>
+        </mgl-timeline-entry-header>
+        <mgl-timeline-entry-content
+          [expandAnimationTiming]="contentAnimation ? '200ms ease' : '0ms'"
+          [collapseAnimationTiming]="contentAnimation ? '100ms ease' : '0ms'"
+          >{{ user.message }}</mgl-timeline-entry-content
+        >
+        <mgl-timeline-entry-dot
+          [style.background-image]="'url(' + user.avatarURL + ')'"
+          [size]="size"
+          (click)="onDotClick($event)"
+          [expandAnimationTiming]="dotAnimation ? '200ms ease' : '0ms'"
+          [collapseAnimationTiming]="dotAnimation ? '100ms ease' : '0ms'"
+        >
+          <button></button>
+        </mgl-timeline-entry-dot>
+        <mgl-timeline-entry-side
+          >{{ user.joinedDate.toDate() | date: 'yyyy年M月d日'
+          }}<span>JOIN</span></mgl-timeline-entry-side
+        >
+      </mgl-timeline-entry>
+    </mgl-timeline>
+  </div>
+  <span class="giza giza--end"></span>
+</div>

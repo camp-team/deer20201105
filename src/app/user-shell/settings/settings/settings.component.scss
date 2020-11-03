@@ -13,6 +13,17 @@ mat-form-field {
   margin-top: 24px;
 }
 
+.swiper-slide {
+  opacity: 0.3;
+  transition: opacity 0.4s;
+  &.swiper-slide-active {
+    opacity: 1;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
 .settings {
   padding: 60px 0;
   &__inner {
@@ -20,7 +31,7 @@ mat-form-field {
     margin: 0 auto;
   }
   &__title {
-    font-size: 24px;
+    font-size: 20px;
     color: $color-gradient-admin-middle;
   }
   &__box {
@@ -45,6 +56,20 @@ mat-form-field {
   &__cropper {
     width: 232px;
     display: inline-block;
+  }
+  &__swiper {
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: calc(100vw - 64px);
+  }
+  &__swiper-pager {
+    display: flex;
+    place-content: center;
+    gap: 8px;
+    text-align: center;
+    margin: 12px 0 0;
   }
   &__toggle {
     margin-top: 24px;

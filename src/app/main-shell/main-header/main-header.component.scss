@@ -1,26 +1,16 @@
-:host {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
+@import 'variables';
+@import 'mixins';
 
 .header {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  min-height: 48px;
-  display: flex;
-  &__logo {
-    font-size: 16px;
-    margin-right: auto;
-  }
-  &__icon {
-    margin-left: 8px;
-    box-shadow: none;
-    background-color: #ccc;
-    background: center / cover;
+  &__btn {
+    position: fixed;
+    background-color: $color-gradient-admin-middle;
+    top: 12px;
+    right: 24px;
+    z-index: 1000;
+    @include sp {
+      top: 8px;
+      right: 16px;
+    }
   }
 }

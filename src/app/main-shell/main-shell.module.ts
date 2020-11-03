@@ -9,6 +9,7 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [MainShellComponent, MainFooterComponent, MainHeaderComponent],
@@ -18,6 +19,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    MatTooltipModule,
   ],
 })
 export class MainShellModule {}

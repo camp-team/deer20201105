@@ -25,6 +25,8 @@
     padding: 20px 0;
     color: map-get($mat-grey, 800);
     font-size: 14px;
+    text-align: justify;
+    white-space: pre-wrap;
   }
   &__footer {
     display: flex;

@@ -2,10 +2,10 @@
   <div class="container">
     <div class="settings__inner">
       <div class="settings__box">
-        <h1 class="settings__title">メッセージ登録・編集</h1>
+        <h1 class="settings__title">メッセージ編集・ユーザー設定</h1>
         <form [formGroup]="form" (ngSubmit)="updateUser()">
           <div class="settings__content">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
               <mat-label>メッセージタイトル</mat-label>
               <input
                 matInput
@@ -26,12 +26,13 @@
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>メッセージ本文</mat-label>
               <textarea
                 matInput
                 autocomplete="off"
                 formControlName="message"
+                rows="4"
                 [maxlength]="messageMaxLength"
                 required
               ></textarea>
@@ -78,6 +79,18 @@
                   }"
                   (image)="onCroppedImage($event)"
                 ></deer-crop-trigger>
+              </div>
+            </div>
+
+            <div class="settings__avatar">
+              <div class="settings__avatar-label">キャラクター選択</div>
+              <div class="settings__swiper">
+                <swiper [config]="swiperConfig" [(index)]="selectedCharacterId">
+                  <div *ngFor="let characterId of characterIds; index as i">
+                    <img src="assets/images/char-{{ i + 1 }}.png" alt="" />
+                  </div>
+                </swiper>
+                <div class="settings__swiper-pager"></div>
               </div>
             </div>
 
