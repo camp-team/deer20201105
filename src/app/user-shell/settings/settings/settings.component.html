@@ -83,10 +83,10 @@
 
             <div class="settings__avatar">
               <div class="settings__avatar-label">キャラクター選択</div>
-              <p>
-                一応各メンバーに対応したキャラを作っています。<span
-                ></span>自分のキャラを探し当ててみてください☺️
-              </p>
+              <div class="settings__description">
+                <p>一応各メンバーに対応したキャラを作ってみました。</p>
+                <p>自分のキャラを探し当ててみてください☺️</p>
+              </div>
               <div class="settings__swiper">
                 <swiper [config]="swiperConfig" [(index)]="selectedCharacterId">
                   <div *ngFor="let characterId of characterIds; index as i">
