@@ -1,5 +1,7 @@
 <div class="message-list">
   <div class="container">
+    <mat-spinner class="loading" *ngIf="isloading"></mat-spinner>
+
     <div class="message-list__inner">
       <app-message-card
         *ngFor="let user of users$ | async"
