@@ -152,7 +152,11 @@
           <div class="settings__actions">
             <button
               class="btn-admin"
-              [disabled]="form.invalid || form.pristine || processing"
+              [disabled]="
+                (form.invalid && selectedCharacterId === userCharacterId) ||
+                (form.pristine && selectedCharacterId === userCharacterId) ||
+                processing
+              "
             >
               <span>{{
                 toggleBtnText(form.get('isPublic').value, form.pristine)

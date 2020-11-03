@@ -50,6 +50,7 @@ export class SettingsComponent implements OnInit {
   });
   imageFile: string;
   oldImageUrl: string;
+  userCharacterId: number;
 
   constructor(
     private authService: AuthService,
@@ -74,6 +75,7 @@ export class SettingsComponent implements OnInit {
           isPublic: user.isPublic || false,
         });
         this.selectedCharacterId = user.characterId ? user.characterId - 1 : 0;
+        this.userCharacterId = user.characterId - 1;
       });
   }
 
