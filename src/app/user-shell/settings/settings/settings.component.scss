@@ -50,6 +50,13 @@ mat-form-field {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.04);
   }
+  &__description {
+    margin-bottom: 16px;
+    p {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
   &__avatar-label {
     margin-bottom: 12px;
   }
