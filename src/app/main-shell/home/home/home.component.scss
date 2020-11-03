@@ -70,10 +70,6 @@
       left: 84%;
     }
   }
-  &__char {
-    max-width: 20%;
-    animation: bress 3s linear 0s infinite;
-  }
 }
 
 .hero {
@@ -117,11 +113,8 @@
     max-width: 100%;
     margin: 0 auto;
     position: absolute;
-    top: -400%;
+    top: -300%;
     right: 0;
-    @include pc-s {
-      top: -300%;
-    }
     @include sp {
       max-width: 60%;
       top: 24px;
@@ -132,14 +125,11 @@
     animation: fuwafuwa 3s linear 0s infinite;
   }
   &__btn {
-    display: block;
     margin: 0 auto;
-    font-style: normal;
     font-weight: normal;
     letter-spacing: 2px;
     font-size: 22px;
     line-height: 40px;
-    text-transform: uppercase;
     background: #f4157e;
     color: #fff;
     appearance: none;

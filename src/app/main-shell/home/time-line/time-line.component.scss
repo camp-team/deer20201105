@@ -1,6 +1,7 @@
 @import 'mixins';
 
 .time-line {
+  overflow: hidden;
   max-width: 100%;
   background-image: linear-gradient(
     -45deg,

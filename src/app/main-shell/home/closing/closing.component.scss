@@ -17,6 +17,7 @@
   padding: 80px 40px 120px;
   font-family: 'M PLUS 1p', sans-serif;
   position: relative;
+  overflow: hidden;
   @include sp {
     padding: 40px 16px 40px;
   }
