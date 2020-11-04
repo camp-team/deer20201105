@@ -1,14 +1,29 @@
 <div class="time-line">
   <span class="giza"></span>
   <div class="deco">
-    <img src="assets/images/flag.png" alt="" />
     <p class="star" *ngFor="let star of stars">⭐️<small>⭐️</small></p>
   </div>
+  <h2 class="time-line__head">
+    <picture>
+      <source
+        media="(min-width: 1366px)"
+        srcset="assets/images/heading-5.png 1920w"
+        sizes="100vw"
+      />
+      <img
+        media="(min-width: 600px)"
+        srcset="assets/images/heading-sp.png 1125w"
+        sizes="100vw"
+      />
+    </picture>
+    <img
+      class="time-line__box"
+      data-aos="zoom-in-up"
+      src="assets/images/cracker.png"
+      alt=""
+    />
+  </h2>
   <div class="container">
-    <h2 class="time-line__head">
-      お誕生日<br />
-      おめでとうおめでとうございます（仮）
-    </h2>
     <mgl-timeline>
       <mgl-timeline-entry *ngFor="let user of users$ | async as users">
         <mgl-timeline-entry-header
