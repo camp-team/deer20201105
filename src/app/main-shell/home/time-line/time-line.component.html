@@ -5,6 +5,10 @@
     <p class="star" *ngFor="let star of stars">⭐️<small>⭐️</small></p>
   </div>
   <div class="container">
+    <h2 class="time-line__head">
+      お誕生日<br />
+      おめでとうおめでとうございます（仮）
+    </h2>
     <mgl-timeline>
       <mgl-timeline-entry *ngFor="let user of users$ | async as users">
         <mgl-timeline-entry-header
@@ -15,13 +19,20 @@
           />
 
           <p>{{ user.name }}</p>
-          <span>💌</span>
+          <span class="timeline-entry-header-contents">
+            <span class="timeline-entry-header-contents__emoji">💌</span>
+            <span class="timeline-entry-header-contents__text">Click me!!</span>
+          </span>
         </mgl-timeline-entry-header>
         <mgl-timeline-entry-content
           [expandAnimationTiming]="contentAnimation ? '200ms ease' : '0ms'"
           [collapseAnimationTiming]="contentAnimation ? '100ms ease' : '0ms'"
-          >{{ user.message }}</mgl-timeline-entry-content
         >
+          <h3>{{ user.title }}</h3>
+          <div>
+            {{ user.message }}
+          </div>
+        </mgl-timeline-entry-content>
         <mgl-timeline-entry-dot
           [style.background-image]="'url(' + user.avatarURL + ')'"
           [size]="size"

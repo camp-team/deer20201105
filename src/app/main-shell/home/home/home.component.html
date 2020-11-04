@@ -63,15 +63,27 @@
       width="120"
     />
 
-    <div class="hero">
-      <img class="hero__date" src="assets/images/date.svg" />
-      <figure class="hero__hero">
-        <img cdkDrag src="assets/images/char-0.png" />
+    <div class="home__date">
+      <img src="assets/images/date.svg" />
+    </div>
+
+    <div class="home__action">
+      <button
+        class="home__btn"
+        aria-label="スクロールしてメッセージを見る"
+        (click)="scrollTo('messages')"
+      >
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+    </div>
+
+    <div cdkDrag class="hero">
+      <figure>
+        <img src="assets/images/char-0.png" />
       </figure>
-      <div class="hero__action">
-        <button class="hero__btn" (click)="scrollTo('messages')">
-          メッセージを見る GO ▼
-        </button>
+      <div class="hero__logo">
+        <span></span>
+        <img src="assets/images/logo-camp.png" alt="" />
       </div>
     </div>
   </div>

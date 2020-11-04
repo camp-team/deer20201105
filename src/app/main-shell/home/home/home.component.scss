@@ -5,6 +5,7 @@
   background: url(/assets/images/bg.png) no-repeat center/cover;
   height: 100vh;
   position: relative;
+  overflow: hidden;
   @include pc-s {
     background: url(/assets/images/bg-pc-s.png) no-repeat center/cover;
   }
@@ -70,101 +71,141 @@
       left: 84%;
     }
   }
-}
-
-.hero {
-  max-width: 20%;
-  display: flex;
-  flex-flow: column;
-  position: absolute;
-  bottom: 64px;
-  right: 24px;
-  z-index: 200;
-  @include pc-s {
-    right: 0;
-  }
-  @include sp {
-    max-width: 100%;
-    position: static;
-  }
-  &__hero {
-    max-width: 100%;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    img {
-      max-width: 100%;
-      position: fixed;
-      bottom: 64px;
-      @include pc-s {
-        width: 300px;
-        bottom: 16px;
-      }
-      @include sp {
-        width: 200px;
-        position: absolute;
-        bottom: 16px;
-        display: block;
-        margin: 0 auto;
-      }
-    }
-  }
   &__date {
-    max-width: 100%;
-    margin: 0 auto;
     position: absolute;
-    top: -300%;
-    right: 0;
+    bottom: 50vh;
+    right: 16px;
+    max-width: 300px;
+    width: 20%;
     @include sp {
-      max-width: 60%;
-      top: 24px;
+      top: 8px;
       left: 0;
+      // transform: translateX(-50%);
+      width: 40%;
+      max-width: 220px;
+    }
+    img {
+      width: 100%;
     }
   }
   &__action {
+    position: absolute;
+    bottom: 16px;
+    left: calc(50% - 30px);
     animation: fuwafuwa 3s linear 0s infinite;
+    opacity: 0.8;
   }
   &__btn {
-    margin: 0 auto;
-    font-weight: normal;
-    letter-spacing: 2px;
-    font-size: 22px;
-    line-height: 40px;
-    background: #f4157e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f4157e;
     color: #fff;
-    appearance: none;
-    border: none;
-    border-radius: 10px;
-    min-width: 20%;
-    padding: 16px 24px;
     box-shadow: 0 10px 60px -10px #cd106e;
-    cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    user-select: none;
-    transform-style: preserve-3d;
-    transform: perspective(250px) scale3d(1, 1, 1);
-    transition: all 1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
-    outline: none;
-    position: relative;
-    z-index: 102;
-    @include pc-s {
-      font-size: 16px;
-      padding: 8px 16px;
+    transition: 0.4s;
+    mat-icon {
+      font-size: 30px;
+      width: 30px;
+      height: 30px;
     }
     @include sp {
       display: none;
     }
     &:hover {
-      background: lighten(#f4157e, 2%);
+      background-color: lighten(#f4157e, 2%);
+      color: #fff;
       box-shadow: 0 8px 65px -5px #cd106e;
     }
     &:active {
-      background: #cd106e;
+      color: #cd106e;
       box-shadow: 0 10px 60px -10px #cd106e;
-      transform: perspective(250px) scale3d(1, 1, 1) translateY(5%) !important;
+    }
+  }
+}
+
+.hero {
+  cursor: move;
+  position: fixed;
+  bottom: 0;
+  right: -60px;
+  max-width: 400px;
+  z-index: 1000;
+  @include sp {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 200px;
+    margin: 0 auto;
+    bottom: 16px;
+  }
+
+  figure {
+    margin: 0;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    padding: 4% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    z-index: 11;
+
+    &::before,
+    &::after,
+    span::before,
+    span::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    &::before {
+      top: 6px;
+      left: 6px;
+    }
+    &::after {
+      bottom: 6px;
+      right: 6px;
     }
     span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      &::before {
+        top: 6px;
+        right: 6px;
+      }
+      &::after {
+        bottom: 6px;
+        left: 6px;
+      }
+    }
+    img {
       display: block;
+      margin: 0 auto;
+      width: 60%;
+      filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2));
     }
   }
 }
