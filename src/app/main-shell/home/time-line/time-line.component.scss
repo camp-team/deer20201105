@@ -21,6 +21,17 @@
   @include sp {
     padding: 40px 0 40px;
   }
+
+  &__head {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.timeline-entry-entry-content {
+  &__message {
+    margin-top: 16px;
+  }
 }
 
 .giza {
@@ -94,19 +105,26 @@ mgl-timeline-entry-header {
     top: 10%;
     left: -30%;
     z-index: 101;
-    @include sp {
+    @media screen and (max-width: 687px) {
       width: 120px;
       height: 120px;
       left: 0;
     }
   }
-  span {
+  .timeline-entry-header-contents {
     font-size: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: flash 2s linear infinite;
+    &__emoji {
+      display: block;
+    }
+    &__text {
+      display: block;
+      font-size: 16px;
+    }
   }
 }
 
@@ -173,7 +191,9 @@ mgl-timeline-entry:nth-child(odd) mgl-timeline-entry-side span {
   left: 32px;
 }
 
-mgl-timeline-entry:nth-child(odd) mgl-timeline-entry-header span {
+mgl-timeline-entry:nth-child(odd)
+  mgl-timeline-entry-header
+  .timeline-entry-header-contents {
   font-size: 40px;
   position: absolute;
   top: 50%;
