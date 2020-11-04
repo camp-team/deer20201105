@@ -16,7 +16,7 @@
   background-size: 40px 40px;
   background-attachment: fixed;
   position: relative;
-  padding: 160px 0 120px;
+  padding: 120px 0 120px;
   font-family: 'M PLUS 1p', sans-serif;
   @include sp {
     padding: 40px 0 40px;
@@ -25,6 +25,17 @@
   &__head {
     margin: 0 auto;
     text-align: center;
+    position: relative;
+  }
+  &__box {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -80px;
+    right: 15%;
+    @include sp {
+      display: none;
+    }
   }
 }
 
@@ -67,7 +78,7 @@
     font-size: 40px;
     position: absolute;
     top: 50%;
-    left: 30%;
+    left: 5%;
     z-index: 101;
     transform: rotate(-45deg);
     @include sp {
