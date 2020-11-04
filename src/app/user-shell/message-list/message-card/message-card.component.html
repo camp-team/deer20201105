@@ -1,6 +1,6 @@
 <div class="message-card">
   <h2 class="message-card__title">{{ user.title }}</h2>
-  <div class="message-card__content">
+  <div class="message-card__content" *ngIf="isOpen" [@slideInOut]>
     {{ user.message }}
   </div>
   <div class="message-card__footer">

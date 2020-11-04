@@ -1,3 +1,4 @@
+@import '~@angular/material/theming';
 @import 'variables';
 @import 'mixins';
 
@@ -5,6 +6,21 @@
   padding: 40px 0;
   @include sp {
     padding: 30px 0;
+  }
+  &__toggle {
+    padding-bottom: 16px;
+    text-align: right;
+    color: map-get($mat-grey, 200);
+    @include sp {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 16px;
+      background-color: rgba(107, 141, 214, 0.95);
+      text-align: center;
+      z-index: 99;
+    }
   }
   &__inner {
     display: grid;

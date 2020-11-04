@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./message-list.component.scss'],
 })
 export class MessageListComponent implements OnInit {
+  isOpen = true;
   isloading: boolean;
 
   users$: Observable<UserData[]> = this.userService
