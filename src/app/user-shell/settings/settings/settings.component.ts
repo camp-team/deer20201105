@@ -124,7 +124,7 @@ export class SettingsComponent implements OnInit {
     } else if (isPublic && !pristine) {
       return 'メッセージを公開する';
     } else {
-      return '下書きを保存する';
+      return '非公開にして保存する';
     }
   }
 }
