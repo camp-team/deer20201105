@@ -24,7 +24,7 @@
     />
   </h2>
   <div class="container">
-    <mgl-timeline>
+    <mgl-timeline [toggle]="false">
       <mgl-timeline-entry *ngFor="let user of users$ | async as users">
         <mgl-timeline-entry-header
           ><img
