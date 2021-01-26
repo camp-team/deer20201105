@@ -77,14 +77,19 @@
       </button>
     </div>
 
-    <div cdkDrag class="hero">
+    <div
+      cdkDrag
+      class="hero"
+      (cdkDragStarted)="handleDragStart($event)"
+      (click)="handleClick($event)"
+    >
       <figure>
         <img src="assets/images/char-0.png" />
       </figure>
-      <div class="hero__logo">
+      <a class="hero__logo">
         <span></span>
         <img src="assets/images/logo-camp.png" alt="" />
-      </div>
+      </a>
     </div>
   </div>
 </div>

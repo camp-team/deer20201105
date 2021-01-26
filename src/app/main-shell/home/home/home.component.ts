@@ -1,3 +1,4 @@
+import { CdkDragStart } from '@angular/cdk/drag-drop';
 import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit {
   chars = new Array(36);
   users$: Observable<UserData[]> = this.userService.getUsers();
+  dragging: boolean;
 
   constructor(
     private userService: UserService,
@@ -19,6 +21,18 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  handleDragStart(event: CdkDragStart): void {
+    this.dragging = true;
+  }
+
+  handleClick(event: MouseEvent): void {
+    if (this.dragging) {
+      this.dragging = false;
+      return;
+    }
+    window.open('https://to.camp/', '_blank');
+  }
 
   scrollTo(target: string) {
     this.viewportScroller.scrollToAnchor(target);
